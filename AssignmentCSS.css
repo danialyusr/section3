@@ -1,0 +1,80 @@
+.form{
+  font-family: sans-serif;
+  margin-top: 110px;
+  float: right;
+  width: 42%;
+  margin-right: 50px;
+
+}
+.river{
+height:650px;
+width:600px;
+
+
+}
+.big{
+  text-decoration: underline cyan;
+  font-family: sans-serif;
+  font-size: 18px;
+
+
+
+}
+.tri{
+
+  float: left;
+  width: 600px;
+  height: 610px;
+  margin-left: 10px;
+
+  margin-top: 10px;
+  background-image: url(Images/river_of_life.JPG);
+  max-width: 100%;
+  max-height: 100%;
+  clip-path:polygon(0 0, 0 100%, 100% 50%);
+}
+
+body{
+  width: 100%;
+  max-width: 1350px;
+  margin:0 auto;
+}
+.matric{
+
+  height: 30px;
+  line-height: 1.0;
+
+}
+.password{
+
+  height: 30px;
+  line-height: 1.0;
+
+}
+.login{
+  font-family: sans-serif;
+
+  line-height: 2.0;
+  text-align: center;
+  padding:0 104px;
+}
+.logo{
+width: 210px;
+height: 50px;
+
+float: right;
+}
+.PD{
+  float: right;
+  margin-top: 180px;
+  color: blue;
+  margin-right: 5px;
+  letter-spacing: 1px;
+  size: 1px;
+}
+.copy{
+  float: right;
+  margin-top: 180px;
+
+  size: 1px;
+}
