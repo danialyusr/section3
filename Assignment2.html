@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  height: 100px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h2 {
+    position: center;
+}
+
+</style>
+
+</head>
+<body>
+
+<h2 >Snake and Ladder</h2>
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h2>21</h2>
+    <p id="21positionP1"></p>
+    <p id="21positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>22</h2>
+    <p id="22positionP1"></p>
+    <p id="22positionP2"></p>
+
+  </div>
+
+  <div class="column" style="background-color:#aaa;">
+    <h2>23</h2>
+    <p>Not a chance. Move to position 16</p>
+    <p id="23positionP1"></p>
+    <p id="23positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>24</h2>
+    <p id="24positionP1"></p>
+    <p id="24positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#aaa;">
+    <h2>25</h2>
+    <p id="25positionP1"></p>
+    <p id="25positionP2"></p>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="column" style="background-color:#ccc;">
+    <h2>16</h2>
+    <p id="16positionP1"></p>
+    <p id="16positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#aaa;">
+    <h2>17</h2>
+    <p id="17positionP1"></p>
+    <p id="17positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>18</h2>
+    <p id="18positionP1"></p>
+    <p id="18positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#aaa;">
+    <h2>19</h2>
+    <p>Nice one. Move to position 24.</p>
+    <p id="19positionP1"></p>
+    <p id="19positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>20</h2>
+    <p id="20positionP1"></p>
+    <p id="20positionP2"></p>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h2>11</h2>
+    <p id="11positionP1"></p>
+    <p id="11positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>12</h2>
+    <p id="12positionP1"></p>
+    <p id="12positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#aaa;">
+    <h2>13</h2>
+    <p id="13positionP1"></p>
+    <p id="13positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>14</h2>
+    <p id="14positionP1"></p>
+    <p id="14positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#aaa;">
+    <h2>15</h2>
+    <p>Oops. Go back to position 5.</p>
+    <p id="15positionP1"></p>
+    <p id="15positionP2"></p>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="column" style="background-color:#ccc;">
+    <h2>6</h2>
+    <p id="6positionP1"></p>
+    <p id="6positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#aaa;">
+    <h2>7</h2>
+    <p id="7positionP1"></p>
+    <p id="7positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>8</h2>
+    <p>You are lucky. Go to position 15.</p>
+    <p id="8positionP1"></p>
+    <p id="8positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#aaa;">
+    <h2>9</h2>
+    <p id="9positionP1"></p>
+    <p id="9positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>10</h2>
+    <p id="10positionP1"></p>
+    <p id="10positionP2"></p>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h2>1</h2>
+    <p id="1positionP1" ></p>
+    <p id="1positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>2</h2>
+    <p id="2positionP1"></p>
+    <p id="2positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#aaa;">
+    <h2>3</h2>
+    <p id="3positionP1"></p>
+    <p id="3positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>4</h2>
+    <p id="4positionP1"></p>
+    <p id="4positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#aaa;">
+    <h2>5</h2>
+    <p id="5positionP1"></p>
+    <p id="5positionP2"></p>
+
+  </div>
+</div><br>
+
+
+<div class="resultP1">
+      <label for="Dice1result">Player 1 </label><p class ="display1" > </p>
+      <input type="submit" value="Roll dice" class="rollDice1">
+    </div>
+<br>
+
+    <div class="resultP2">
+          <label for="Dice2result">Player 2 </label><p class ="display2" > </p>
+
+          <input type="submit" value="Roll dice" class="rollDice2">
+        </div>
+
+
+</body>
+
+<script>
+  var box = [];
+  var length = 25;
+
+
+  const position1 = document.querySelector('.position1');
+  const position2 = document.querySelector('.position2');
+  const rollDice1 = document.querySelector('.rollDice1');
+  const rollDice2 = document.querySelector('.rollDice2');
+  const display1 = document.querySelector('.display1');
+  const display2 = document.querySelector('.display2');
+
+
+
+  let move1 = 0;
+  let move2 = 0;
+
+function player1(){
+
+       let rolldice = Math.floor(Math.random() * 6) + 1;
+
+       if(move1 >25){
+         display1.textContent += rolldice;
+      move1 -= 25;
+      move1 += rolldice;
+     box[move1] = 'P1';
+     document.getElementById(move1+"positionP1").innerHTML = box[move1];
+      }
+
+       else if(move1 === 25){
+         display1.textContent = 'Congratulations! You got it right!';
+         display1.style.backgroundColor = 'green';
+
+    }
+
+     else if(move1 === 0 && box[0]===0){
+       display1.textContent += rolldice;
+     move1 += rolldice;
+       box[move1] = 'P1' ;
+
+       document.getElementById(move1+"positionP1").innerHTML = box[move1];
+
+     }
+
+     else{
+       display1.textContent += rolldice;
+       move1 += rolldice;
+      box[move1] = 'P1';
+      document.getElementById(move1+"positionP1").innerHTML = box[move1];
+    }
+
+
+  }
+     rollDice1.addEventListener('click', player1);
+
+//player2
+
+function player2(){
+
+       let rolldice = Math.floor(Math.random() * 6) + 1;
+
+       if(move2 >25){
+         display2.textContent += rolldice;
+      move2 -= 25;
+      move2 += rolldice;
+     box[move2] = 'P2';
+     document.getElementById(move1+"positionP2").innerHTML = box[move2];
+      }
+
+       else if(move2 === 25){
+         display2.textContent = 'Congratulations! You got it right!';
+         display2.style.backgroundColor = 'green';
+
+    }
+
+     else if(move2 === 0 && box[0]===0){
+       display2.textContent += rolldice;
+     move2 += rolldice;
+       box[move2] = 'P2' ;
+
+       document.getElementById(move2+"positionP2").innerHTML = box[move2];
+
+     }
+
+     else{
+       display2.textContent += rolldice;
+       move2 += rolldice;
+      box[move2] = 'P2';
+      document.getElementById(move2+"positionP2").innerHTML = box[move2];
+    }
+
+
+  }
+     rollDice2.addEventListener('click', player2);
+
+
+
+</script>
+
+
+</html>
