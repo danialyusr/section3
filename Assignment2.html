@@ -8,15 +8,14 @@
   box-sizing: border-box;
 }
 
-
 .column {
   float: left;
-  width: 20%;
-  padding: 10px;
-  height: 100px; 
+  width: 18%;
+  padding: 5px;
+  height: 120px; 
 }
 
-/* Clear floats after the columns */
+
 .row:after {
   content: "";
   display: table;
@@ -50,7 +49,7 @@ h2 {
 
   <div class="column" style="background-color:#aaa;">
     <h2>23</h2>
-    <p>Not a chance. Move to position 16</p>
+
     <p id="23positionP1"></p>
     <p id="23positionP2"></p>
 
@@ -90,7 +89,7 @@ h2 {
   </div>
   <div class="column" style="background-color:#aaa;">
     <h2>19</h2>
-    <p>Nice one. Move to position 24.</p>
+
     <p id="19positionP1"></p>
     <p id="19positionP2"></p>
 
@@ -130,7 +129,7 @@ h2 {
   </div>
   <div class="column" style="background-color:#aaa;">
     <h2>15</h2>
-    <p>Oops. Go back to position 5.</p>
+
     <p id="15positionP1"></p>
     <p id="15positionP2"></p>
 
@@ -152,7 +151,7 @@ h2 {
   </div>
   <div class="column" style="background-color:#ccc;">
     <h2>8</h2>
-    <p>You are lucky. Go to position 15.</p>
+
     <p id="8positionP1"></p>
     <p id="8positionP2"></p>
 
@@ -174,7 +173,7 @@ h2 {
 <div class="row">
   <div class="column" style="background-color:#aaa;">
     <h2>1</h2>
-    <p id="1positionP1" ></p>
+    <p id ="1positionP1" ></p>
     <p id="1positionP2"></p>
 
   </div>
@@ -206,13 +205,13 @@ h2 {
 
 
 <div class="resultP1">
-      <label for="Dice1result">Player 1 </label><p class ="display1" > </p>
+      <label for="Dice1result">P1 </label><p class ="display1" > </p>
       <input type="submit" value="Roll dice" class="rollDice1">
     </div>
 <br>
 
     <div class="resultP2">
-          <label for="Dice2result">Player 2 </label><p class ="display2" > </p>
+          <label for="Dice2result">P2 </label><p class ="display2" > </p>
 
           <input type="submit" value="Roll dice" class="rollDice2">
         </div>
@@ -221,9 +220,6 @@ h2 {
 </body>
 
 <script>
-  var box = [];
-  var length = 25;
-
 
   const position1 = document.querySelector('.position1');
   const position2 = document.querySelector('.position2');
@@ -232,87 +228,191 @@ h2 {
   const display1 = document.querySelector('.display1');
   const display2 = document.querySelector('.display2');
 
+  var box = [];
+  let reset = 1;
+  let pos1 = 0;
+  let pos2 = 0;
 
-
-  let move1 = 0;
-  let move2 = 0;
+  rollDice1.addEventListener('click', player1);
 
 function player1(){
 
+
+
        let rolldice = Math.floor(Math.random() * 6) + 1;
 
-       if(move1 >25){
-         display1.textContent += rolldice;
-      move1 -= 25;
-      move1 += rolldice;
-     box[move1] = 'P1';
-     document.getElementById(move1+"positionP1").innerHTML = box[move1];
-      }
+       if (reset == 0) {
+         console.clear();
+         display1.innerHTML = " ";
+         display1.style.backgroundColor = '';
+         display2.innerHTML = " ";
+         display2.style.backgroundColor = '';
+         reset = 1;
+       }
 
-       else if(move1 === 25){
-         display1.textContent = 'Congratulations! You got it right!';
-         display1.style.backgroundColor = 'green';
+      if(pos1 === 0 && reset===1){
+       display1.textContent = 'Player 1 rolled ' + rolldice;
+       pos1 += rolldice;
+       box[pos1] = 'P1' ;
 
-    }
 
-     else if(move1 === 0 && box[0]===0){
-       display1.textContent += rolldice;
-     move1 += rolldice;
-       box[move1] = 'P1' ;
-
-       document.getElementById(move1+"positionP1").innerHTML = box[move1];
-
+       document.getElementById(pos1+"positionP1").innerHTML = box[pos1];
      }
 
      else{
-       display1.textContent += rolldice;
-       move1 += rolldice;
-      box[move1] = 'P1';
-      document.getElementById(move1+"positionP1").innerHTML = box[move1];
+       display1.textContent = 'Player 1 rolled ' +rolldice;
+       document.getElementById(pos1+"positionP1").innerHTML = '';
+       pos1 += rolldice;
+
+       if(pos1>25){
+        pos1 -= 25;
+
+       }
+      box[pos1] = 'P1';
+      document.getElementById(pos1+"positionP1").innerHTML = box[pos1];
+
+
+
+      if(pos1 === 25){
+
+      display1.textContent = 'Congratulations! You win!';
+      display1.style.backgroundColor = 'green';
+      display2.textContent = 'Sorry! You lose!';
+      display2.style.backgroundColor = 'red';
+      pos1=0;
+      reset=0;
+    }
+
+     if (pos1 == 15) {
+      display1.textContent = "Yikes! You stepped on a snake! Go down to position 5." ;
+      document.getElementById(pos1+"positionP1").innerHTML = '';
+      pos1 = 5;
+      box[pos1] = 'P1';
+      document.getElementById(pos1+"positionP1").innerHTML = box[pos1];
+
+    }
+
+     if (pos1 == 23) {
+      display1.innerHTML = "Not again! You stepped on a snake! Go down to position 16." ;
+      document.getElementById(pos1+"positionP1").innerHTML = '';
+      pos1 = 16;
+      box[pos1] = 'P1';
+      document.getElementById(pos1+"positionP1").innerHTML = box[pos1];
+
+    }
+
+     if (pos1 == 8) {
+      display1.innerHTML = "Nice. You stepped on a ladder! Move to position 15." ;
+      document.getElementById(pos1+"positionP1").innerHTML = '';
+      pos1 = 15;
+      box[pos1] = 'P1';
+      document.getElementById(pos1+"positionP1").innerHTML = box[pos1];
+
+    }
+
+     if (pos1 == 19) {
+      display1.innerHTML = "Good luck. You stepped on a ladder! Move to position 24." ;
+      document.getElementById(pos1+"positionP1").innerHTML = '';
+      pos1 = 24;
+      box[pos1] = 'P1';
+      document.getElementById(pos1+"positionP1").innerHTML = box[pos1];
     }
 
 
-  }
-     rollDice1.addEventListener('click', player1);
+     }
 
-//player2
+    }
+
+
 
 function player2(){
 
+
+
        let rolldice = Math.floor(Math.random() * 6) + 1;
 
-       if(move2 >25){
-         display2.textContent += rolldice;
-      move2 -= 25;
-      move2 += rolldice;
-     box[move2] = 'P2';
-     document.getElementById(move1+"positionP2").innerHTML = box[move2];
-      }
+       if (reset == 0) {
+         console.clear();
+         display2.innerHTML = " ";
+         display2.style.backgroundColor = '';
+         display1.innerHTML = " ";
+         display1.style.backgroundColor = '';
+         reset = 1;
+       }
 
-       else if(move2 === 25){
-         display2.textContent = 'Congratulations! You got it right!';
-         display2.style.backgroundColor = 'green';
+      if(pos2 === 0 && reset===1){
+       display2.textContent = 'Player 2 rolled ' + rolldice;
+       pos2 += rolldice;
+       box[pos2] = 'P2' ;
 
-    }
-
-     else if(move2 === 0 && box[0]===0){
-       display2.textContent += rolldice;
-     move2 += rolldice;
-       box[move2] = 'P2' ;
-
-       document.getElementById(move2+"positionP2").innerHTML = box[move2];
+       document.getElementById(pos2+"positionP2").innerHTML = box[pos2];
 
      }
 
      else{
-       display2.textContent += rolldice;
-       move2 += rolldice;
-      box[move2] = 'P2';
-      document.getElementById(move2+"positionP2").innerHTML = box[move2];
+       display2.textContent = 'Player 2 rolled ' + rolldice;
+       document.getElementById(pos2+"positionP2").innerHTML = '';
+       pos2 += rolldice;
+
+       if(pos2>25){
+        pos2 -= 25;
+
+       }
+      box[pos2] = 'P2';
+      document.getElementById(pos2+"positionP2").innerHTML = box[pos2];
+
+
+
+     if(pos2 === 25){
+
+      display2.textContent = 'Congratulations! You win!';
+      display2.style.backgroundColor = 'green';
+      display1.textContent = 'Sorry! You lose!';
+      display1.style.backgroundColor = 'red';
+      pos2=0;
+      reset=0;
     }
 
+    if (pos2 == 15) {
+     display2.textContent = "Yikes! You stepped on a snake! Go down to position 5." ;
+     document.getElementById(pos2+"positionP2").innerHTML = '';
+     pos2 = 5;
+     box[pos2] = 'P2';
+     document.getElementById(pos2+"positionP2").innerHTML = box[pos2];
 
-  }
+   }
+
+    if (pos2 == 23) {
+     display2.innerHTML = "Not again! You stepped on a snake! Go down to position 16." ;
+     document.getElementById(pos2+"positionP2").innerHTML = '';
+     pos2 = 16;
+     box[pos2] = 'P2';
+     document.getElementById(pos2+"positionP2").innerHTML = box[pos2];
+
+   }
+
+    if (pos2 == 8) {
+     display2.innerHTML = "Nice. You stepped on a ladder! Move to position 15." ;
+     document.getElementById(pos2+"positionP2").innerHTML = '';
+     pos2 = 15;
+     box[pos2] = 'P2';
+     document.getElementById(pos2+"positionP2").innerHTML = box[pos2];
+
+   }
+
+    if (pos2 == 19) {
+     display2.innerHTML = "Good luck. You stepped on a ladder! Move to position 24." ;
+     document.getElementById(pos2+"positionP2").innerHTML = '';
+     pos2 = 24;
+     box[pos2] = 'P2';
+     document.getElementById(pos2+"positionP2").innerHTML = box[pos2];
+   }
+
+
+
+     }
+
+    }
      rollDice2.addEventListener('click', player2);
 
 
