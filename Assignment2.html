@@ -6,13 +6,24 @@
 <style>
 * {
   box-sizing: border-box;
-}
 
+}
+.cell{
+  position: relative;
+  width: 790px;
+  height: 890px;
+  background-color: grey;
+  margin: 70px;
+  border: 60px;
+  border-color: grey;
+  border-style: solid;
+
+}
 .column {
   float: left;
-  width: 18%;
-  padding: 5px;
-  height: 120px; 
+  width: 20%;
+  padding: 10px;
+  height: 120px;
 }
 
 
@@ -33,6 +44,9 @@ h2 {
 
 <h2 >Snake and Ladder</h2>
 
+<div class="cell">
+
+
 <div class="row">
   <div class="column" style="background-color:#aaa;">
     <h2>21</h2>
@@ -48,7 +62,7 @@ h2 {
   </div>
 
   <div class="column" style="background-color:#aaa;">
-    <h2>23</h2>
+    <h2 style="color:brown">23</h2>
 
     <p id="23positionP1"></p>
     <p id="23positionP2"></p>
@@ -61,7 +75,7 @@ h2 {
 
   </div>
   <div class="column" style="background-color:#aaa;">
-    <h2>25</h2>
+    <h2 style="color:green">25</h2>
     <p id="25positionP1"></p>
     <p id="25positionP2"></p>
 
@@ -70,9 +84,23 @@ h2 {
 
 <div class="row">
   <div class="column" style="background-color:#ccc;">
-    <h2>16</h2>
-    <p id="16positionP1"></p>
-    <p id="16positionP2"></p>
+    <h2>20</h2>
+    <p id="20positionP1"></p>
+    <p id="20positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#aaa;">
+    <h2 style="color:cyan">19</h2>
+
+    <p id="19positionP1"></p>
+    <p id="19positionP2"></p>
+
+  </div>
+
+  <div class="column" style="background-color:#ccc;">
+    <h2>18</h2>
+    <p id="18positionP1"></p>
+    <p id="18positionP2"></p>
 
   </div>
   <div class="column" style="background-color:#aaa;">
@@ -81,25 +109,14 @@ h2 {
     <p id="17positionP2"></p>
 
   </div>
+
   <div class="column" style="background-color:#ccc;">
-    <h2>18</h2>
-    <p id="18positionP1"></p>
-    <p id="18positionP2"></p>
+    <h2>16</h2>
+    <p id="16positionP1"></p>
+    <p id="16positionP2"></p>
 
   </div>
-  <div class="column" style="background-color:#aaa;">
-    <h2>19</h2>
 
-    <p id="19positionP1"></p>
-    <p id="19positionP2"></p>
-
-  </div>
-  <div class="column" style="background-color:#ccc;">
-    <h2>20</h2>
-    <p id="20positionP1"></p>
-    <p id="20positionP2"></p>
-
-  </div>
 </div>
 
 <div class="row">
@@ -128,7 +145,7 @@ h2 {
 
   </div>
   <div class="column" style="background-color:#aaa;">
-    <h2>15</h2>
+    <h2 style="color:brown">15</h2>
 
     <p id="15positionP1"></p>
     <p id="15positionP2"></p>
@@ -138,22 +155,9 @@ h2 {
 
 <div class="row">
   <div class="column" style="background-color:#ccc;">
-    <h2>6</h2>
-    <p id="6positionP1"></p>
-    <p id="6positionP2"></p>
-
-  </div>
-  <div class="column" style="background-color:#aaa;">
-    <h2>7</h2>
-    <p id="7positionP1"></p>
-    <p id="7positionP2"></p>
-
-  </div>
-  <div class="column" style="background-color:#ccc;">
-    <h2>8</h2>
-
-    <p id="8positionP1"></p>
-    <p id="8positionP2"></p>
+    <h2>10</h2>
+    <p id="10positionP1"></p>
+    <p id="10positionP2"></p>
 
   </div>
   <div class="column" style="background-color:#aaa;">
@@ -162,10 +166,26 @@ h2 {
     <p id="9positionP2"></p>
 
   </div>
+
   <div class="column" style="background-color:#ccc;">
-    <h2>10</h2>
-    <p id="10positionP1"></p>
-    <p id="10positionP2"></p>
+    <h2 style="color:cyan">8</h2>
+
+    <p id="8positionP1"></p>
+    <p id="8positionP2"></p>
+
+  </div>
+
+
+  <div class="column" style="background-color:#aaa;">
+    <h2>7</h2>
+    <p id="7positionP1"></p>
+    <p id="7positionP2"></p>
+
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>6</h2>
+    <p id="6positionP1"></p>
+    <p id="6positionP2"></p>
 
   </div>
 </div>
@@ -216,7 +236,7 @@ h2 {
           <input type="submit" value="Roll dice" class="rollDice2">
         </div>
 
-
+</div>
 </body>
 
 <script>
